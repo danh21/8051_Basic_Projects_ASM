@@ -10,3 +10,4 @@
         + Version 2: the highest possible frequency, duty cycle is 50%.
         + Version 3: frequency is 100KHz, duty cycle is 50%.
         + Version 4: frequency is 10KHz, duty cycle is 50%.
+        + Version 5: frequency is 1KHz, duty cycle is 50%.
