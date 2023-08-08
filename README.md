@@ -12,3 +12,8 @@
         + Version 4: frequency is 10KHz, duty cycle is 50%.
         + Version 5: frequency is 1KHz, duty cycle is 50%.
         + Version 6: frequency is 1Hz, duty cycle is 50%, blink led.
+    
+    - alert_Buzzer: activates buzzer when detecting failing edge from SPDT switch.
+
+# Reference
+    - 8051 Microcontroller - Tong Van On
