@@ -15,5 +15,4 @@
     
     - alert_Buzzer: activates buzzer when detecting failing edge from SPDT switch.
 
-# Reference
-    - 8051 Microcontroller - Tong Van On
+    - counter: uses switch to control to count up/down and displays on led 7-segment (count frequency is 2Hz).
