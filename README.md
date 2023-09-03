@@ -16,3 +16,5 @@
     - alert_Buzzer: activates buzzer when detecting failing edge from SPDT switch.
 
     - counter: uses switch to control to count up/down and displays on led 7-segment (count frequency is 2Hz).
+
+    - div_frequency: uses button to control to divide frequency, mode 0 -> 4 correspond to 10KHz -> 625Hz.
