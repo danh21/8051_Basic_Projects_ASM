@@ -1,0 +1,66 @@
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 17:13:57 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN code.OBJ
+ASSEMBLER INVOKED BY: D:\phan_mem\KEIL\Keil\C51\BIN\A51.EXE code.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1             ORG 00H                                 ; reset
+0000 020030            2             LJMP MAIN                        
+000B                   3             ORG 0BH                                 ; timer0 interrupt
+000B 020040            4             LJMP TIMER_INT0                 
+0030                   5             ORG 30H 
+                       6                                                     
+                       7     
+                       8     
+0030                   9     MAIN:   
+0030 75A882           10             MOV IE, #82H                    ; enable global, timer0 interrupt
+                      11     
+0033 758901           12             MOV TMOD, #01H                  ; timer0, mode 16-bit
+0036 758A78           13             MOV TL0, #LOW(-5000)    ; 100Hz <-> 10,000us 
+0039 758CEC           14             MOV TH0, #HIGH(-5000)
+003C D28C             15             SETB TR0                                ; start timer0
+                      16     
+003E 80FE             17             SJMP $                                  ; while(1)
+                      18     
+                      19     
+                      20                                                                                                
+                                          
+0040                  21     TIMER_INT0:
+0040 B290             22             CPL P1.0                                ; toggle
+                      23             
+0042 C28D             24             CLR TF0                                 ; clear overflow flag           
+0044 758A78           25             MOV TL0, #LOW(-5000)    ; 5,000us
+0047 758CEC           26             MOV TH0, #HIGH(-5000)
+004A D28C             27             SETB TR0                                ; start timer0
+                      28                                                     
+004C 32               29             RETI
+                      30     
+                      31     
+                      32     
+                      33     END                                                                     
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 17:13:57 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0030H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+TF0. . . . . . . .  B ADDR   0088H.5 A   
+TH0. . . . . . . .  D ADDR   008CH   A   
+TIMER_INT0 . . . .  C ADDR   0040H   A   
+TL0. . . . . . . .  D ADDR   008AH   A   
+TMOD . . . . . . .  D ADDR   0089H   A   
+TR0. . . . . . . .  B ADDR   0088H.4 A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
