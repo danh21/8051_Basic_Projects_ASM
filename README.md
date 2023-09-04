@@ -5,6 +5,7 @@
     - Keil C IDE
     - Proteus
     - Matrix Led
+    - EdSim51DI
     
 # Source: 
     - create_Pulse: 
@@ -14,6 +15,7 @@
         + Version 4: frequency is 10KHz, duty cycle is 50%.
         + Version 5: frequency is 1KHz, duty cycle is 50%.
         + Version 6: frequency is 1Hz, duty cycle is 50%, blink led.
+        + Version 7: frequency is 100Hz, duty cycle is 50%.
     
     - alert_Buzzer: activates buzzer when detecting failing edge from SPDT switch.
 
@@ -22,3 +24,5 @@
     - div_frequency: uses button to control to divide frequency, mode 0 -> 4 correspond to 10KHz -> 625Hz.
 
     - matrix_led: scans led matrix 8x8 to display character.
+
+    - calculator: calculates sum of 2 numbers and displays on led 7-segment (SW7-SW4 is first number and SW3-SW0 is second number).
