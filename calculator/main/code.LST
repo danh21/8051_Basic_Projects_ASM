@@ -1,0 +1,69 @@
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 18:37:59 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN code.OBJ
+ASSEMBLER INVOKED BY: D:\phan_mem\KEIL\Keil\C51\BIN\A51.EXE code.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0H
+  00B1                 2             enable EQU P3.1
+  0090                 3             num1 EQU P1
+  00A0                 4             num2 EQU P2
+  0080                 5             result EQU P0
+0000 020003            6             LJMP MAIN
+                       7     
+                       8     
+                       9     
+0003                  10     MAIN:
+0003 30B1FD           11             JNB enable, MAIN        ; check enable
+                      12     
+0006 E4               13             CLR A                           ; rst
+0007 20B209           14             JB P3.2, SUM            ; check operator
+                      15             
+000A E590             16             MOV A, num1                     ; sub
+000C C3               17             CLR C                           ; rst carry-bit flag
+000D 95A0             18             SUBB A, num2
+                      19     
+                      20     
+                      21     
+000F                  22     showResult:
+000F F580             23             MOV result, A
+0011 80F0             24             SJMP MAIN
+                      25     
+                      26     
+                      27     
+0013                  28     SUM:
+0013 E590             29             MOV A, num1
+0015 25A0             30             ADD A, num2
+0017 80F6             31             SJMP showResult
+                      32     
+                      33     
+                      34     
+                      35     END
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 18:37:59 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ENABLE . . . . . .  B ADDR   00B0H.1 A   
+MAIN . . . . . . .  C ADDR   0003H   A   
+NUM1 . . . . . . .  D ADDR   0090H   A   
+NUM2 . . . . . . .  D ADDR   00A0H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P1 . . . . . . . .  D ADDR   0090H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+RESULT . . . . . .  D ADDR   0080H   A   
+SHOWRESULT . . . .  C ADDR   000FH   A   
+SUM. . . . . . . .  C ADDR   0013H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

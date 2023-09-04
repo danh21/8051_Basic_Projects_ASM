@@ -1,0 +1,58 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/04/2023  18:37:59  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\PHAN_MEM\KEIL\KEIL\C51\BIN\BL51.EXE code.obj TO CongTruNhiPhan8Bit
+
+
+INPUT MODULES INCLUDED:
+  code.obj (CODE)
+
+
+LINK MAP OF MODULE:  CongTruNhiPhan8Bit (CODE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0019H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  CongTruNhiPhan8Bit (CODE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CODE
+  B:00B0H.1       SYMBOL        ENABLE
+  C:0003H         SYMBOL        MAIN
+  D:0090H         SYMBOL        NUM1
+  D:00A0H         SYMBOL        NUM2
+  D:0080H         SYMBOL        P0
+  D:0090H         SYMBOL        P1
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  D:0080H         SYMBOL        RESULT
+  C:000FH         SYMBOL        SHOWRESULT
+  C:0013H         SYMBOL        SUM
+  C:0000H         LINE#         6
+  C:0003H         LINE#         11
+  C:0006H         LINE#         13
+  C:0007H         LINE#         14
+  C:000AH         LINE#         16
+  C:000CH         LINE#         17
+  C:000DH         LINE#         18
+  C:000FH         LINE#         23
+  C:0011H         LINE#         24
+  C:0013H         LINE#         29
+  C:0015H         LINE#         30
+  C:0017H         LINE#         31
+  -------         ENDMOD        CODE
+
+Program Size: data=8.0 xdata=0 code=25
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
