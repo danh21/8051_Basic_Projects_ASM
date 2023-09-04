@@ -2,7 +2,9 @@
     Basic projects related to 8051 microcontroller using ASM.
 
 # Software
+    - Keil C IDE
     - Proteus
+    - Matrix Led
     
 # Source: 
     - create_Pulse: 
@@ -18,3 +20,5 @@
     - counter: uses switch to control to count up/down and displays on led 7-segment (count frequency is 2Hz).
 
     - div_frequency: uses button to control to divide frequency, mode 0 -> 4 correspond to 10KHz -> 625Hz.
+
+    - matrix_led: scans led matrix 8x8 to display character.

@@ -1,0 +1,80 @@
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 11:58:33 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN code.OBJ
+ASSEMBLER INVOKED BY: D:\phan_mem\KEIL\Keil\C51\BIN\A51.EXE code.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000H
+  00A0                 2             Col EQU P2
+  0080                 3             Row EQU P0
+  REG                  4             select_Col EQU R2
+0000 7A7F              5         MOV select_Col, #07FH       ; init, select column 0
+                       6     
+                       7     
+                       8     
+0002                   9     MAIN:
+0002 90001F           10             MOV DPTR, #BITMAP               ; data pointer to get each byte
+                      11     
+                      12     
+                      13     
+0005                  14     SUBMAIN:   
+0005 7400             15         MOV A, #0                           ; display led matrix
+0007 93               16         MOVC A, @A+DPTR      
+0008 F580             17         MOV Row, A                   
+000A 8AA0             18         MOV Col, select_Col                  
+                      19     
+000C 111A             20         CALL  DELAY         
+                      21     
+000E 75A0FF           22             MOV Col, #0FFH          ; unselect columns
+                      23     
+0011 A3               24         INC DPTR                            ; get next byte
+                      25     
+0012 EA               26         MOV A, select_Col           ; select next column
+0013 03               27         RR A                                        
+0014 FA               28         MOV select_Col, A   
+                      29     
+0015 B47FED           30         CJNE A, #07FH, SUBMAIN       
+0018 80E8             31         JMP MAIN                            ; reset
+                      32     
+                      33     
+                      34     
+001A                  35     DELAY:
+001A 7FC8             36         MOV R7, #200                 
+001C DFFE             37         DJNZ R7, $                          ; decrease R7, until R7 = 0 -> exit loop
+001E 22               38             RET             
+                      39     
+                      40     
+                      41     
+001F                  42     BITMAP:      
+001F 00FFFFC3         43             DB 0H,0FFH,0FFH,0C3H,0C3H,7EH,3CH,0H
+0023 C37E3C00                
+                      44     
+                      45     
+                      46        
+                      47     END
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 11:58:33 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+BITMAP . . . . . .  C ADDR   001FH   A   
+COL. . . . . . . .  D ADDR   00A0H   A   
+DELAY. . . . . . .  C ADDR   001AH   A   
+MAIN . . . . . . .  C ADDR   0002H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+P2 . . . . . . . .  D ADDR   00A0H   A   
+ROW. . . . . . . .  D ADDR   0080H   A   
+SELECT_COL . . . .    REG    R2          
+SUBMAIN. . . . . .  C ADDR   0005H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

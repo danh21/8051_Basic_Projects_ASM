@@ -1,0 +1,60 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/04/2023  11:58:33  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\PHAN_MEM\KEIL\KEIL\C51\BIN\BL51.EXE code.obj TO MaTranLed_8x8 RAMSIZE (256)
+
+
+INPUT MODULES INCLUDED:
+  code.obj (CODE)
+
+
+LINK MAP OF MODULE:  MaTranLed_8x8 (CODE)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0027H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  MaTranLed_8x8 (CODE)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        CODE
+  C:001FH         SYMBOL        BITMAP
+  D:00A0H         SYMBOL        COL
+  C:001AH         SYMBOL        DELAY
+  C:0002H         SYMBOL        MAIN
+  D:0080H         SYMBOL        P0
+  D:00A0H         SYMBOL        P2
+  D:0080H         SYMBOL        ROW
+  C:0005H         SYMBOL        SUBMAIN
+  C:0000H         LINE#         5
+  C:0002H         LINE#         10
+  C:0005H         LINE#         15
+  C:0007H         LINE#         16
+  C:0008H         LINE#         17
+  C:000AH         LINE#         18
+  C:000CH         LINE#         20
+  C:000EH         LINE#         22
+  C:0011H         LINE#         24
+  C:0012H         LINE#         26
+  C:0013H         LINE#         27
+  C:0014H         LINE#         28
+  C:0015H         LINE#         30
+  C:0018H         LINE#         31
+  C:001AH         LINE#         36
+  C:001CH         LINE#         37
+  C:001EH         LINE#         38
+  -------         ENDMOD        CODE
+
+Program Size: data=8.0 xdata=0 code=39
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
