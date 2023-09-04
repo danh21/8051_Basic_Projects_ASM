@@ -172,10 +172,10 @@
       <FileType>2</FileType>
       <tvExp>0</tvExp>
       <Focus>0</Focus>
-      <ColumnNumber>21</ColumnNumber>
+      <ColumnNumber>1</ColumnNumber>
       <tvExpOptDlg>0</tvExpOptDlg>
-      <TopLine>1</TopLine>
-      <CurrentLine>22</CurrentLine>
+      <TopLine>2</TopLine>
+      <CurrentLine>23</CurrentLine>
       <bDave2>0</bDave2>
       <PathWithFileName>.\code.asm</PathWithFileName>
       <FilenameWithoutPath>code.asm</FilenameWithoutPath>
@@ -1527,9 +1527,9 @@
       <Documents>
         <Doc>
           <Name>.\code.asm</Name>
-          <ColumnNumber>21</ColumnNumber>
-          <TopLine>1</TopLine>
-          <CurrentLine>22</CurrentLine>
+          <ColumnNumber>1</ColumnNumber>
+          <TopLine>2</TopLine>
+          <CurrentLine>23</CurrentLine>
         </Doc>
       </Documents>
     </MDIGroup>

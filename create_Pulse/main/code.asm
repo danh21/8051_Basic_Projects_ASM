@@ -20,8 +20,7 @@ MAIN:
 													
 TIMER_INT0:
 	CPL P1.0				; toggle
-	
-	CLR TF0					; clear overflow flag		
+			
 	MOV TL0, #LOW(-5000)	; 5,000us
 	MOV TH0, #HIGH(-5000)
 	SETB TR0		 		; start timer0

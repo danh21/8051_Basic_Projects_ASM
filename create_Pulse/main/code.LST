@@ -1,4 +1,4 @@
-A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 17:13:57 PAGE     1
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 17:53:26 PAGE     1
 
 
 MACRO ASSEMBLER A51 V8.02
@@ -30,18 +30,17 @@ LOC  OBJ            LINE     SOURCE
                                           
 0040                  21     TIMER_INT0:
 0040 B290             22             CPL P1.0                                ; toggle
-                      23             
-0042 C28D             24             CLR TF0                                 ; clear overflow flag           
-0044 758A78           25             MOV TL0, #LOW(-5000)    ; 5,000us
-0047 758CEC           26             MOV TH0, #HIGH(-5000)
-004A D28C             27             SETB TR0                                ; start timer0
-                      28                                                     
-004C 32               29             RETI
+                      23                             
+0042 758A78           24             MOV TL0, #LOW(-5000)    ; 5,000us
+0045 758CEC           25             MOV TH0, #HIGH(-5000)
+0048 D28C             26             SETB TR0                                ; start timer0
+                      27                                                     
+004A 32               28             RETI
+                      29     
                       30     
                       31     
-                      32     
-                      33     END                                                                     
-A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 17:13:57 PAGE     2
+                      32     END                                                                     
+A51 MACRO ASSEMBLER  CODE                                                                 09/04/2023 17:53:26 PAGE     2
 
 SYMBOL TABLE LISTING
 ------ ----- -------
@@ -52,7 +51,6 @@ N A M E             T Y P E  V A L U E   ATTRIBUTES
 IE . . . . . . . .  D ADDR   00A8H   A   
 MAIN . . . . . . .  C ADDR   0030H   A   
 P1 . . . . . . . .  D ADDR   0090H   A   
-TF0. . . . . . . .  B ADDR   0088H.5 A   
 TH0. . . . . . . .  D ADDR   008CH   A   
 TIMER_INT0 . . . .  C ADDR   0040H   A   
 TL0. . . . . . . .  D ADDR   008AH   A   

@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22                                                        09/04/2023  17:13:57  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/04/2023  17:53:26  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
@@ -19,7 +19,7 @@ LINK MAP OF MODULE:  BoDInhThoiTaoXungTanSoXacDinh (CODE)
             REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
 
             * * * * * * *   C O D E   M E M O R Y   * * * * * * *
-            CODE    0000H     004DH     ABSOLUTE     
+            CODE    0000H     004BH     ABSOLUTE     
 
 
 
@@ -32,7 +32,6 @@ SYMBOL TABLE OF MODULE:  BoDInhThoiTaoXungTanSoXacDinh (CODE)
   D:00A8H         SYMBOL        IE
   C:0030H         SYMBOL        MAIN
   D:0090H         SYMBOL        P1
-  B:0088H.5       SYMBOL        TF0
   D:008CH         SYMBOL        TH0
   C:0040H         SYMBOL        TIMER_INT0
   D:008AH         SYMBOL        TL0
@@ -48,11 +47,10 @@ SYMBOL TABLE OF MODULE:  BoDInhThoiTaoXungTanSoXacDinh (CODE)
   C:003EH         LINE#         17
   C:0040H         LINE#         22
   C:0042H         LINE#         24
-  C:0044H         LINE#         25
-  C:0047H         LINE#         26
-  C:004AH         LINE#         27
-  C:004CH         LINE#         29
+  C:0045H         LINE#         25
+  C:0048H         LINE#         26
+  C:004AH         LINE#         28
   -------         ENDMOD        CODE
 
-Program Size: data=8.0 xdata=0 code=77
+Program Size: data=8.0 xdata=0 code=75
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
