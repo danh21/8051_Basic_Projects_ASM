@@ -25,4 +25,6 @@
 
     - matrix_led: scans led matrix 8x8 to display character.
 
-    - calculator: calculates sum of 2 numbers and displays on led 7-segment (SW7-SW4 is first number and SW3-SW0 is second number).
+    - calculator: 
+        + Version 1: calculates sum of 2 numbers and displays on led 7-segment (SW7-SW4 is first number and SW3-SW0 is second number).
+        + Version 2: calculates sum/diff of 2 numbers and displays on led 7-segment (SW7 indicates operator, SW6-SW4 is first number and SW2-SW0 is second number).
