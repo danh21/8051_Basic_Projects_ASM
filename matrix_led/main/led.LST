@@ -1,0 +1,181 @@
+A51 MACRO ASSEMBLER  LED                                                                  09/04/2023 22:22:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.02
+OBJECT MODULE PLACED IN led.OBJ
+ASSEMBLER INVOKED BY: D:\phan_mem\KEIL\Keil\C51\BIN\A51.EXE led.asm SET(SMALL) DEBUG EP
+
+LOC  OBJ            LINE     SOURCE
+
+  00B0                 1     SI BIT P3.0             ; Serial Data
+  00B1                 2     SCK BIT P3.1            ; Clock
+  00B2                 3     RCK BIT P3.2            ; Latch
+                       4     
+  00A0                 5     SelectRow EQU P2        
+  REG                  6     Pointer EQU R0
+  REG                  7     Address EQU R1  
+  REG                  8     numOfCols EQU R2
+  REG                  9     Speed EQU R3
+                      10     
+                      11     
+                      12     
+0000                  13     ORG 0000H 
+0000                  14     MAIN: 
+0000 900058           15             MOV DPTR, #Content
+                      16     
+                      17     
+                      18                            
+0003                  19     ShiftRight:  
+0003 7900             20             MOV Address, #0         
+0005 7B03             21             MOV Speed, #3
+                      22     
+                      23     
+                      24     
+0007                  25     LRAM_P: 
+0007 120018           26             LCALL UploadToRam
+                      27     
+000A 120028           28             LCALL Scan8Rows
+                      29     
+000D DBF8             30             DJNZ Speed, LRAM_P
+                      31     
+000F 7B03             32             MOV Speed, #3
+0011 19               33             DEC Address
+0012 B950F2           34             CJNE Address, #80, LRAM_P
+                      35     
+0015 020003           36             LJMP ShiftRight 
+                      37     
+                      38     
+                      39     
+0018                  40     UploadToRam:
+0018 C001             41             PUSH 01H                                ; Address
+001A 785F             42             MOV Pointer, #5fH               ; RAM from 5fH
+001C 7AA0             43             MOV numOfCols, #160     ; 80 cols  ?
+                      44        
+001E                  45     LoopUpload: 
+001E E9               46             MOV A, Address 
+001F 93               47             MOVC A, @A+DPTR                 ; get data
+0020 09               48             INC Address                             
+                      49     
+0021 F6               50             MOV @Pointer, A                 ; write into RAM
+0022 08               51             INC Pointer                             
+                      52     
+0023 DAF9             53             DJNZ numOfCols, LoopUpload 
+                      54     
+0025 D001             55             POP 01H
+                      56     
+0027 22               57             RET
+                      58     
+A51 MACRO ASSEMBLER  LED                                                                  09/04/2023 22:22:29 PAGE     2
+
+                      59     
+                      60     
+0028                  61     Scan8Rows: 
+0028 7F07             62             MOV R7, #7                                              ; init row
+                      63     
+002A                  64     LoopRow: 
+002A 785F             65             MOV Pointer, #5fH 
+002C C2B2             66             CLR RCK 
+                      67     
+002E                  68     LoopCol:
+002E C2B1             69             CLR SCK 
+                      70     
+0030 E6               71             MOV A, @Pointer                                 ; get data from RAM     to handle
+0031 C3               72             CLR C
+0032 13               73             RRC A
+0033 F6               74             MOV @Pointer, A
+                      75     
+0034 D2B1             76             SETB SCK                                                ; SI is shifted into shift 
+                             reg
+                      77     
+0036 92B0             78             MOV SI, C
+                      79                     
+0038 08               80             INC Pointer     
+0039 B8FFF2           81             CJNE Pointer, #0ffH, LoopCol    ; 160 times
+                      82             
+003C D2B2             83             SETB RCK                                                ; latch shift reg data
+                      84     
+003E 8FA0             85             MOV SelectRow, R7                               ; scan row              
+0040 12004B           86             LCALL Delay
+0043 75A008           87             MOV SelectRow, #8
+0046 1F               88             DEC R7
+0047 BFFFE0           89             CJNE R7, #-1, LoopRow
+                      90     
+004A 22               91             RET
+                      92     
+                      93     
+                      94     
+004B                  95     Delay:  
+004B 750908           96             MOV 09H, #8
+                      97     
+004E                  98     LoopDelay: 
+004E 7510FA           99             MOV 10H, #250 
+0051 D510FD          100         DJNZ 10H, $                         
+0054 D509F7          101         DJNZ 09H, LoopDelay         
+0057 22              102         RET 
+                     103     
+                     104     
+                     105     
+0058                 106     Content: 
+0058 FF909090        107             DB 0FFH,90H,90H,90H,0F0H,0H,0FFH,10H,10H,10H,0FFH,0H,3FH,50H,90H,50H,3FH,0H,0FFH,60
+                             H,18H,6H,0FFH,0H              
+005C F000FF10                
+0060 1010FF00                
+0064 3F509050                
+0068 3F00FF60                
+006C 1806FF00                
+0070 00000000        108             DB 0H,0H,0H,0H                                                                     
+                                                                                                                                           
+0074 7E818181        109             DB 7EH,81H,81H,81H,42H,0H,7EH,81H,81H,81H,7EH,0H,0FFH,60H,18H,6H,0FFH,0H,7EH,81H,89
+                             H,89H,4FH,0H          
+0078 42007E81                
+007C 81817E00                
+0080 FF601806                
+0084 FF007E81                
+0088 89894F00                
+008C 00000000        110             DB 0H,0H,0H,0H                                                                     
+A51 MACRO ASSEMBLER  LED                                                                  09/04/2023 22:22:29 PAGE     3
+
+                                                                                                                                           
+0090 FF818181        111             DB 0FFH,81H,81H,81H,7EH,0H,3FH,50H,90H,50H,3FH,0H,0FFH,60H,18H,6H,0FFH,0H,0FFH,10H,
+                             10H,10H,0FFH,0H       
+0094 7E003F50                
+0098 90503F00                
+009C FF601806                
+00A0 FF00FF10                
+00A4 1010FF00                
+                     112             END 
+A51 MACRO ASSEMBLER  LED                                                                  09/04/2023 22:22:29 PAGE     4
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+ADDRESS. . . . . .    REG    R1          
+CONTENT. . . . . .  C ADDR   0058H   A   
+DELAY. . . . . . .  C ADDR   004BH   A   
+LOOPCOL. . . . . .  C ADDR   002EH   A   
+LOOPDELAY. . . . .  C ADDR   004EH   A   
+LOOPROW. . . . . .  C ADDR   002AH   A   
+LOOPUPLOAD . . . .  C ADDR   001EH   A   
+LRAM_P . . . . . .  C ADDR   0007H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+NUMOFCOLS. . . . .    REG    R2          
+P2 . . . . . . . .  D ADDR   00A0H   A   
+P3 . . . . . . . .  D ADDR   00B0H   A   
+POINTER. . . . . .    REG    R0          
+RCK. . . . . . . .  B ADDR   00B0H.2 A   
+SCAN8ROWS. . . . .  C ADDR   0028H   A   
+SCK. . . . . . . .  B ADDR   00B0H.1 A   
+SELECTROW. . . . .  D ADDR   00A0H   A   
+SHIFTRIGHT . . . .  C ADDR   0003H   A   
+SI . . . . . . . .  B ADDR   00B0H.0 A   
+SPEED. . . . . . .    REG    R3          
+UPLOADTORAM. . . .  C ADDR   0018H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

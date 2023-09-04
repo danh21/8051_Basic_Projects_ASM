@@ -23,7 +23,9 @@
 
     - div_frequency: uses button to control to divide frequency, mode 0 -> 4 correspond to 10KHz -> 625Hz.
 
-    - matrix_led: scans led matrix 8x8 to display character.
+    - matrix_led: 
+        + Version 1: scans 1 led matrix 8x8 to display character.
+        + Version 2: scans 10 leds matrix 8x8 to display string.
 
     - calculator: 
         + Version 1: calculates sum of 2 numbers and displays on led 7-segment (SW7-SW4 is first number and SW3-SW0 is second number).

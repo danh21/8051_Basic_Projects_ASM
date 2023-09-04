@@ -1,0 +1,100 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/04/2023  22:22:29  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\PHAN_MEM\KEIL\KEIL\C51\BIN\BL51.EXE led.obj TO led
+
+
+INPUT MODULES INCLUDED:
+  led.obj (LED)
+
+
+LINK MAP OF MODULE:  led (LED)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     00A8H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  led (LED)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        LED
+  C:0058H         SYMBOL        CONTENT
+  C:004BH         SYMBOL        DELAY
+  C:002EH         SYMBOL        LOOPCOL
+  C:004EH         SYMBOL        LOOPDELAY
+  C:002AH         SYMBOL        LOOPROW
+  C:001EH         SYMBOL        LOOPUPLOAD
+  C:0007H         SYMBOL        LRAM_P
+  C:0000H         SYMBOL        MAIN
+  D:00A0H         SYMBOL        P2
+  D:00B0H         SYMBOL        P3
+  B:00B0H.2       SYMBOL        RCK
+  C:0028H         SYMBOL        SCAN8ROWS
+  B:00B0H.1       SYMBOL        SCK
+  D:00A0H         SYMBOL        SELECTROW
+  C:0003H         SYMBOL        SHIFTRIGHT
+  B:00B0H.0       SYMBOL        SI
+  C:0018H         SYMBOL        UPLOADTORAM
+  C:0000H         LINE#         15
+  C:0003H         LINE#         20
+  C:0005H         LINE#         21
+  C:0007H         LINE#         26
+  C:000AH         LINE#         28
+  C:000DH         LINE#         30
+  C:000FH         LINE#         32
+  C:0011H         LINE#         33
+  C:0012H         LINE#         34
+  C:0015H         LINE#         36
+  C:0018H         LINE#         41
+  C:001AH         LINE#         42
+  C:001CH         LINE#         43
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/04/2023  22:22:29  PAGE 2
+
+
+  C:001EH         LINE#         46
+  C:001FH         LINE#         47
+  C:0020H         LINE#         48
+  C:0021H         LINE#         50
+  C:0022H         LINE#         51
+  C:0023H         LINE#         53
+  C:0025H         LINE#         55
+  C:0027H         LINE#         57
+  C:0028H         LINE#         62
+  C:002AH         LINE#         65
+  C:002CH         LINE#         66
+  C:002EH         LINE#         69
+  C:0030H         LINE#         71
+  C:0031H         LINE#         72
+  C:0032H         LINE#         73
+  C:0033H         LINE#         74
+  C:0034H         LINE#         76
+  C:0036H         LINE#         78
+  C:0038H         LINE#         80
+  C:0039H         LINE#         81
+  C:003CH         LINE#         83
+  C:003EH         LINE#         85
+  C:0040H         LINE#         86
+  C:0043H         LINE#         87
+  C:0046H         LINE#         88
+  C:0047H         LINE#         89
+  C:004AH         LINE#         91
+  C:004BH         LINE#         96
+  C:004EH         LINE#         99
+  C:0051H         LINE#         100
+  C:0054H         LINE#         101
+  C:0057H         LINE#         102
+  -------         ENDMOD        LED
+
+Program Size: data=8.0 xdata=0 code=168
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
